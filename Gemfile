@@ -19,6 +19,10 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'will_paginate'
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'bootstrap'
 gem 'jquery-rails'
 

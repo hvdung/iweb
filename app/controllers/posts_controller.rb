@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :show, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.paginate(:page => params[:page], :per_page => 16)
   end
 
   def new
@@ -10,10 +10,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
-    if @post.save(post_params)
+    @post = Post.new(post_params)
+    if @post.save
       flash[:notice] = "Post created !"
-      redirect_to post_path(@posts)
+      redirect_to post_path(@post)
     else
       flash[:alert] = "Post creating error !"
       render :new
@@ -25,8 +25,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.update_attributes(post_params)
-    if @post.save(post_params)
+    if @post.update_attributes(post_params)
       flash[:alert] = "Post updated !"
       redirect_to post_path(@post)
     else
@@ -46,7 +45,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :desc, :thumbnail)
   end
 
   def find_post

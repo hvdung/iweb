@@ -1,2 +1,33 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
+<% provide(:title, @post.title) %>
+<div class="row page-title">
+  <div class="col-md-5 align-self-center">
+    <h3>Post detail</h3>
+  </div>
+  <div class="col-md-7 align-self-center">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<div class="page-content container-fluid">
+  <div class="page-content-inner">
+    <h1 class="post-title"><%= @post.title %></h1>
+    <ul class="post-meta">
+      <li>
+        <span><i class="far fa-user"></i>Admin</span>
+      </li>
+      <li>
+        <span><i class="far fa-calendar-alt"></i><%= @post.created_at %></span>
+      </li>
+      <li>
+        <span><i class="far fa-folder-open"></i><a href="#">Sport</a></span>
+      </li>
+    </ul>
+    <h2 class="sapo"><%=	@post.desc %></h2>
+    <p><%= raw(@post.content) %></p>
+  </div>
+</div>

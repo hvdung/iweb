@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Iweb</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   </head>
 
-  <body class="bg-light">
+  <body>
     <%= render "layouts/header"%>
-    <%= yield %>
-    <%= render "layouts/footer"%>
+    <div id="main-wrapper">
+      <%= render "layouts/left-sidebar"%>
+      <div class="page-wrapper">
+        <%= yield %>
+        <%= render "layouts/footer"%>
+      </div>
+    </div>
   </body>
 </html>

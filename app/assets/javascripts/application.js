@@ -14,4 +14,13 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require ckeditor/init
 //= require_tree .
+
+$=jQuery;
+$(function(){
+    $(".click-toggle").click(function(){
+        $(this).next().toggle('3000');
+        $(this).toggleClass("fa-angle-down fa-angle-right");
+    });
+});
