@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'will_paginate'
-gem 'ckeditor'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'bootstrap'

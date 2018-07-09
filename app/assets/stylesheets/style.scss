@@ -381,6 +381,7 @@ header{
 .form-control{
   border-color: #d1d1d1;
   border-radius: 0;
+  background-color: #fefefe;
   &:focus{
     box-shadow: none;
     border-color: $accent-color;

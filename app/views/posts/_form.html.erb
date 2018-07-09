@@ -1,0 +1,30 @@
+<%= form_for(@post) do |f| %>
+  <div class="page-content-item">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="post-create-title">
+          <h4>Post title</h4>
+          <%= f.text_field :title, class: 'form-control', placeholder: 'Enter post title' %>
+        </div>
+        <div class="post-create-content">
+          <h4>Post content</h4>
+          <%= f.cktext_area :content, class: 'form-control' %>
+        </div>
+        <div class="post-create-desc">
+          <h4>Post description</h4>
+          <%= f.text_area :desc, class: 'form-control', placeholder: 'Enter post description' %>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="post-create-thumbnail">
+          <h4>Post thumbnail</h4>
+          <span>Please upload your post thumbnail</span>
+          <%= f.file_field :thumbnail %>
+        </div>
+        <div class="post-create-submit">
+          <%= f.submit yield(:btn_title), class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -22,6 +22,8 @@
     <div class="post-desc">
       <%= post.desc %>
     </div>
-    <%= link_to 'Read more', post_path(post.id), class: "read-more" %>
+    <%= link_to 'Read more', post_path(post.id), class: "read-more" %> /
+    <%= link_to 'Edit', edit_post_path(post.id), class: "read-more" %> /
+    <%= link_to 'Delete', post_path(post.id), method: :delete, data:{confirm: 'Are you sure?'}, class: "read-more" %>
   </div>
 </div>
