@@ -1,0 +1,63 @@
+<% provide(:title, resource_name.to_s.humanize) %>
+<div class="row page-title">
+  <div class="col-md-5 align-self-center">
+    <h3>Edit <%= resource_name.to_s.humanize %></h3>
+  </div>
+  <div class="col-md-7 align-self-center">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<div class="page-content container-fluid">
+<div class="row">
+  <div class="col-md-6 offset-md-3 ">
+    <div class="page-content-item form-wrapper">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control input-rounded", placeholder: "Enter your email" %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :password %> <i>(leave blank if you don't want to change it)<% if @minimum_password_length %>(<%= @minimum_password_length %> characters minimum)<% end %></i><br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control input-rounded", placeholder: "Enter your password" %>
+          
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-rounded", placeholder: "Confirm your email" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "off", class: "form-control input-rounded", placeholder: "Enter your current password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update", class: "btn btn-submit input-rounded" %>
+        </div>
+      <% end %>
+
+      <div class="cancel-form">
+        <h4>Cancel my account</h4>
+
+        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-dark input-rounded" %></p>
+
+        <%= link_to "Back", :back %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

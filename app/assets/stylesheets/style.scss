@@ -389,18 +389,22 @@ header{
   &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #ccc;
     font-weight: 300;
+    font-size: 12px;
   }
   &::-moz-placeholder { /* Firefox 19+ */
     color: #ccc;
     font-weight: 300;
+    font-size: 12px;
   }
   &:-ms-input-placeholder { /* IE 10+ */
     color: #ccc;
     font-weight: 300;
+    font-size: 12px;
   }
   &:-moz-placeholder { /* Firefox 18- */
     color: #ccc;
     font-weight: 300;
+    font-size: 12px;
   }
 }
 
@@ -418,4 +422,70 @@ header{
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
   border-radius: 5px;
+  h2{
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+.form-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  form{
+    width: 350px;
+    label{
+      font-weight: 600;
+    }
+  }
+  >a{
+    margin-bottom: 10px;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  .actions{
+    margin-bottom: 20px;
+  }
+  .btn{
+    width: 100%;
+  }
+}
+.input-rounded{
+  border-radius: 100px;
+}
+.btn-submit{
+  background-color: $accent-color;
+  color: #fff;
+  transition: 0.3s;
+  &:hover{
+    box-shadow: 0 14px 26px -12px rgba($accent-color, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba($accent-color, 0.2);
+  }
+}
+.btn-dark{
+  background-color: #000;
+  color: #fff;
+  transition: 0.3s;
+  &:hover{
+    background-color: #fff;
+    color: #000;
+  }
+}
+.alert-msg{
+  width: 80%;
+  margin: auto;
+}
+.cancel-form{
+  text-align: center;
+  padding: 20px;
+  h4{
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #333;
+    font-weight: 700;
+  }
 }

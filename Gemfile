@@ -23,6 +23,7 @@ gem 'will_paginate'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'devise'
 gem 'bootstrap'
 gem 'jquery-rails'
 

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+
+  devise_for :users
   mount Ckeditor::Engine => '/ckeditor'
-  root 'posts#index'
+  root 'pages#home'
 
   resources :posts
 

@@ -1,0 +1,37 @@
+<% provide(:title, "Resend confirmation instructions") %>
+<div class="row page-title">
+  <div class="col-md-5 align-self-center">
+    <h3>Resend confirmation instructions</h3>
+  </div>
+  <div class="col-md-7 align-self-center">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<div class="page-content container-fluid">
+<div class="row">
+  <div class="col-md-6 offset-md-3 ">
+    <div class="page-content-item form-wrapper">
+      <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: "Enter your email", class: "form-control input-rounded" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Resend confirmation instructions", class: "btn btn-submit input-rounded" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,46 @@
+<% provide(:title, "Change your password") %>
+<div class="row page-title">
+  <div class="col-md-5 align-self-center">
+    <h3>Change your password</h3>
+  </div>
+  <div class="col-md-7 align-self-center">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<div class="page-content container-fluid">
+<div class="row">
+  <div class="col-md-6 offset-md-3 ">
+    <div class="page-content-item form-wrapper">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <div class="form-group">
+          <%= f.label :password, "New password" %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "off", class: "form-control input-rounded", placeholder: "Enter your password" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, "Confirm new password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control input-rounded", , placeholder: "Confirm your password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Change my password", class: "btn btn-submit input-rounded" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+</div>
