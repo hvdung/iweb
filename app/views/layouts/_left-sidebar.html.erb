@@ -26,13 +26,10 @@
         </ul>
       </li>
       <li>
-        <a href="#"><i class="fas fa-users"></i>Users</a><i class="fas fa-angle-right click-toggle"></i>
+        <%= link_to users_path do %><i class="fas fa-users"></i>Users</a><i class="fas fa-angle-right click-toggle"></i><% end %>
         <ul class="sub-menu">
           <li>
-            <a href="#">All users</a>
-          </li>
-          <li>
-            <a href="#">Create new user</a>
+            <%= link_to "All Users", users_path %>
           </li>
         </ul>
       </li>

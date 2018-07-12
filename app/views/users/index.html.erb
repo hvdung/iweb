@@ -1,5 +1,26 @@
-<ul>
-  <% @users.each do |user| %>
-    <li><%= user.email %></li>
-  <% end %>
-</ul>
+<% provide(:title, "All users") %>
+<%= render "shared/heading" %>
+<div class="page-content container-fluid">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 ">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Time to created</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each.with_index do |user, index| %>
+          <tr>
+            <th scope="row"><%= index+1 %></th>
+            <td><%= user.email %></td>
+            <td><%= user.created_at %></td>
+          </tr>
+          <%; end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

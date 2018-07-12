@@ -1,19 +1,6 @@
 <% provide(:title, "New post") %>
 <% provide(:btn_title, "Add post") %>
-<div class="row page-title">
-  <div class="col-md-5 align-self-center">
-    <h3>Create new post</h3>
-  </div>
-  <div class="col-md-7 align-self-center">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Library</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Data</li>
-      </ol>
-    </nav>
-  </div>
-</div>
+<%= render "shared/heading" %>
 <div class="page-content container-fluid">
   <%= render "posts/form"	 %>
 </div>
