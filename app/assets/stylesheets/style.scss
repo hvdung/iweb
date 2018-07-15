@@ -43,10 +43,22 @@ a{
     text-decoration: none;
   }
 }
+.href-seperator{
+  &:after{
+    content: ",";
+  }
+  &:last-child{
+    &:after{
+      content: none;
+    }
+  }
+}
 .sticky-top{
   width: 100%;
 }
-
+.w-5{
+  width: 5%;
+}
 .w-10{
   width: 10%;
 }

@@ -24,6 +24,7 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
+gem 'ancestry'
 gem 'bootstrap'
 gem 'jquery-rails'
 

@@ -19,6 +19,12 @@
         </ul>
     </td>
     <td>
-        13
+        <% cat_parents = category.ancestors %>
+        <% cat_parents.each do |c| %>
+        <%= link_to c.title, edit_category_path(c.id), class: "href-seperator"  %>
+        <% end %>
+    </td>
+    <td>
+      13
     </td>
 </tr>

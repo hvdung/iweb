@@ -4,6 +4,11 @@
     <%= f.text_field :title, class: 'form-control', placeholder: 'Enter category title' %>
   </div>
   <div class="post-create-desc">
+    <h4>Category parent</h4>
+    <%= f.select(:parent_id, Category.all.collect { |p| [ p.title, p.id ] }, {:include_blank => "Select category parent"}, {:class => "form-control"} ) %>
+    <%#= f.select :parent_id, Category.all.collect { |p| [ p.title, p.id ] }, {class: 'form-control', include_blank: "Select category parent",} %>
+  </div>
+  <div class="post-create-desc">
     <h4>Category title</h4>
     <%= f.text_area :desc, class: 'form-control', placeholder: 'Enter category description' %>
   </div>
