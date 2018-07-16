@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180715082233) do
+ActiveRecord::Schema.define(version: 20180716054820) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -22,10 +22,9 @@ ActiveRecord::Schema.define(version: 20180715082233) do
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
-    t.string "data_id", null: false
-    t.string "data_filename", null: false
-    t.integer "data_size"
+    t.string "data_file_name", null: false
     t.string "data_content_type"
+    t.integer "data_file_size"
     t.string "type", limit: 30
     t.integer "width"
     t.integer "height"
