@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root 'pages#home'
 
-  resources :users, only: [:index]
+  resources :users
   resources :posts
   resources :categories
 

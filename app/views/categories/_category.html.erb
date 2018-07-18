@@ -9,6 +9,7 @@
       <%= category.desc %>
     </td>
     <td>
+      <% if current_user.admin?  %>
         <ul class="cat-action">
           <li>
             <%= link_to 'Edit', edit_category_path(category.id) %>
@@ -17,6 +18,11 @@
             <%= link_to 'Delete', category_path(category.id), method: :delete, data:{confirm: 'Are you sure?'} %>
           </li>
         </ul>
+      <%	else %>
+      <span>
+        Only admin to action
+      </span>
+      <%	end %>
     </td>
     <td>
         <% cat_parents = category.ancestors %>
