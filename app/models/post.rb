@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   validates :desc, length: { maximum: 250 }
 
   belongs_to :user
+  has_and_belongs_to_many :categories
 end

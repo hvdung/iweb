@@ -19,6 +19,7 @@
             <td><%= user.email %></td>
             <td><%= user.created_at.strftime("%Y-%m-%d") %></td>
             <td>
+              <% if logged_in? %>
               <% if current_user.admin?  %>
                 <ul class="cat-action">
                   <li>
@@ -29,7 +30,7 @@
               <span>
                 Only admin to action
               </span>
-              <%	end %>
+              <% end	end %>
             </td>
           </tr>
           <%; end %>
