@@ -36,6 +36,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @categories = @post.relationships.all
   end
 
   def destroy

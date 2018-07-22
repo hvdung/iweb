@@ -9,6 +9,7 @@
       <%= category.desc %>
     </td>
     <td>
+    <% if logged_in? %>
       <% if current_user.admin?  %>
         <ul class="cat-action">
           <li>
@@ -22,7 +23,7 @@
       <span>
         Only admin to action
       </span>
-      <%	end %>
+      <% end	end %>
     </td>
     <td>
         <% cat_parents = category.ancestors %>
@@ -31,6 +32,6 @@
         <% end %>
     </td>
     <td>
-      13
+      <%= link_to category.relationships.count, category_path(category.id) %>
     </td>
 </tr>

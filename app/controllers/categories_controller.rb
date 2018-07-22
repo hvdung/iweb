@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :find_category, only: [:edit, :update, :destroy]
+  before_action :find_category, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_user!, except: [:index]
   before_action :admin_user, only: [:edit, :update, :destroy]
 
@@ -38,6 +38,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @posts = @category.relationships.paginate(:page => params[:page], :per_page => 10)
   end
 
   def destroy

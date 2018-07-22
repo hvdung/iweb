@@ -14,9 +14,6 @@
       <li>
         <span><i class="far fa-calendar-alt"></i><%= post.created_at.strftime("%Y-%m-%d") %></span>
       </li>
-      <li>
-        <span><i class="far fa-folder-open"></i><a href="#">Sport</a></span>
-      </li>
     </ul>
     <h4 class="post-title"><%= link_to post.title, post_path(post.id) %></h4>
     <div class="post-desc">

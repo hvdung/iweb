@@ -5,5 +5,6 @@ class Category < ApplicationRecord
 
   has_ancestry
 
-  has_and_belongs_to_many :posts
+  has_many :relationships, dependent: :destroy
+  has_many :posts, through: :relationships
 end
