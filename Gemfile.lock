@@ -86,6 +86,7 @@ GEM
     ffi (1.9.25-x86-mingw32)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hirb (0.7.3)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -205,6 +206,7 @@ DEPENDENCIES
   ckeditor!
   coffee-rails (~> 4.2)
   devise
+  hirb
   jbuilder (~> 2.5)
   jquery-rails
   mini_magick
@@ -218,4 +220,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.16.2
+   1.16.3
