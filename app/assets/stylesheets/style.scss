@@ -549,3 +549,18 @@ tbody{
     }
   }
 }
+
+.select-cat-wrapper{
+  margin: 0;
+  padding: 0;
+  max-height: 250px;
+  overflow-y: auto;
+  li{
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #ebebeb;
+    span{
+      margin-left: 10px;
+    }
+  }
+}

@@ -18,6 +18,17 @@
       </div>
       <div class="col-md-3">
         <div class="post-create-thumbnail">
+          <h4>Categories</h4>
+          <span>Select category(s)</span>
+          <ul class="select-cat-wrapper">
+            <% @categories.each do |cat| %>
+            <li>
+              <input type="checkbox" name="cat_grp[]" value="<%= cat.id %>"><span><%= cat.title %></span>
+            </li>
+              <% end %>
+          </ul>
+        </div>
+        <div class="post-create-thumbnail">
           <h4>Post thumbnail</h4>
           <span>Please upload your post thumbnail</span>
           <%= f.file_field :thumbnail %>
