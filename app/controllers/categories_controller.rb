@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.paginate(:page => params[:page], :per_page => 10)
+    @categories_sort = Category.sort_by_ancestry(@categories)
     @category = Category.new
   end
 

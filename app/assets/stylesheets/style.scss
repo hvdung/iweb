@@ -530,6 +530,16 @@ header{
 .table{
   background-color: #fff;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  .child{
+    .title-table{
+      span{
+        &:before{
+          content: "-";
+          margin-right: 5px;
+        }
+      }
+    }
+  }
 }
 
 tbody{

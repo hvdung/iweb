@@ -1,9 +1,14 @@
-<tr>
+<% if category.ancestry.blank? %>
+  <% @class = "parent" %>
+<% else %>
+  <% @class = "child" %>
+<% end %>
+<tr class="<%= @class %>">
     <td>
         <%= category_counter + 1 %>
     </td>
-    <td>
-        <%= category.title %>
+    <td class="title-table">
+        <span><%= category.title %></span>
     </td>
     <td>
       <%= category.desc %>
