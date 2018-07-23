@@ -14,7 +14,6 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      @post.relationships.create(category_id: post_params[:category_ids])
       flash[:notice] = "Post created !"
       redirect_to post_path(@post)
     else
