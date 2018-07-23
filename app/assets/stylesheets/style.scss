@@ -559,8 +559,9 @@ tbody{
     list-style: none;
     padding: 10px 0;
     border-bottom: 1px solid #ebebeb;
-    span{
+    label{
       margin-left: 10px;
+      margin-bottom: 0;
     }
   }
 }

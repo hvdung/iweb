@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
+      @post.relationships.create(category_id: post_params[:category_ids])
       flash[:notice] = "Post created !"
       redirect_to post_path(@post)
     else
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-
+    @categories = Category.all
   end
 
   def update
@@ -48,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :desc, :thumbnail)
+    params.require(:post).permit(:title, :content, :desc, :thumbnail, category_ids:[])
   end
 
   def find_post
