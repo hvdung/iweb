@@ -21,7 +21,7 @@
           <h4>Categories</h4>
           <span>Select category(s)</span>
           <ul class="select-cat-wrapper">
-            <%= f.collection_check_boxes :category_ids, @categories, :id, :title do |cat| %>
+            <%= f.collection_check_boxes :category_ids, Category.all, :id, :title do |cat| %>
               <li>
                 <%= cat.check_box %>
                 <%= cat.label %>

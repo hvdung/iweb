@@ -1,9 +1,4 @@
-<% if category.ancestry.blank? %>
-  <% @class = "parent" %>
-<% else %>
-  <% @class = "child" %>
-<% end %>
-<tr class="<%= @class %>">
+<tr>
     <td>
         <%= category_counter + 1 %>
     </td>
