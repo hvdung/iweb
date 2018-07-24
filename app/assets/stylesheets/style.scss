@@ -354,6 +354,40 @@ header{
     }
   }
 }
+.post-filter{
+  background-color: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  padding: 10px 20px;
+  .post-filter-item{
+    h3{
+      color: #252525;
+      font-weight: bold;
+      font-size: 24px;
+      padding-top: 15px;
+      margin-bottom: 20px;
+    }
+    ul{
+      margin: 0;
+      padding: 0;
+      li{
+        list-style: none;
+        padding: 10px 0;
+        border-bottom: 1px solid #ebebeb;
+        a{
+          font-size: 14px;
+          text-transform: capitalize;
+          color: #252525;
+          display: block;
+          &:hover{
+            color: $accent-color;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
 .pagination{
   margin-bottom: 40px;
   display: flex;

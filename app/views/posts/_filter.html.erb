@@ -1,0 +1,12 @@
+<div class="post-filter">
+  <div class="post-filter-item">
+    <h3>Filter by category</h3>
+    <ul>
+      <% @categories.each do |c| %>
+      <li>
+        <%= link_to c.title, '#', data_id: c.id, class: 'click-cat' %>
+      </li>
+        <% end %>
+    </ul>
+  </div>
+</div>
