@@ -2,11 +2,12 @@
   <div class="post-filter-item">
     <h3>Filter by category</h3>
     <ul>
-      <% @categories.each do |c| %>
+      <% @categories.each do |cat| %>
       <li>
-        <%= link_to c.title, '#', data_id: c.id, class: 'click-cat' %>
+        <span class="filter-click" data_id=<%= cat.id %> name="category" ><%= cat.title %></span>
       </li>
-        <% end %>
+      <% end %>
     </ul>
   </div>
 </div>
+

@@ -24,19 +24,31 @@ $(document).ready(function () {
     });
 
     /* Ajax filter category */
-    $('.click-cat').click(function () {
-        event.preventDefault();
+    // $('.click-cat').click(function () {
+    //     event.preventDefault();
+    //     var cat_id = $(this).attr('data_id');
+    //
+    //     $.ajax({
+    //         url: "/posts/",
+    //         method: "POST",
+    //         data: {
+    //             id: cat_id
+    //         },
+    //         success: function () {
+    //             $('.post-archive').html('<div>'+cat_id+'</div>');
+    //         }
+    //     })
+    // })
+    $('.filter-click').click(function () {
+        var url = window.location.href;
         var cat_id = $(this).attr('data_id');
-
-        $.ajax({
-            url: "/posts/",
-            data: {
-                id: cat_id
-            },
-            success: function () {
-                $('.post-archive').html('<div>'+cat_id+'</div>');
-            }
-        })
+        var name = $(this).attr('name');
+        if (url.indexOf('?') > -1){
+            url += '&'+name+'='+cat_id
+        }else{
+            url += '?'+name+'='+cat_id
+        }
+        window.location.href = url;
     })
 
 })
