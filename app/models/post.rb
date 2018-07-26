@@ -8,4 +8,7 @@ class Post < ApplicationRecord
 
   has_many :relationships, dependent: :destroy
   has_many :categories, through: :relationships
+
+  scope :cat_id, -> (cat_id) { joins(:relationships).merge(Relationship.cat_id(cat_id)) }
+  scope :user_id, -> (user_id) { where user_id: user_id }
 end
