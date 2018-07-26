@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @categories = Category.all
+    @cat_id = params[:cat_id]
 
     if params[:cat_id].present?
       @posts = Post.joins(:relationships).where("category_id = ?", params[:cat_id]).paginate(:page => params[:page], :per_page => 16)

@@ -39,16 +39,7 @@ $(document).ready(function () {
     //         }
     //     })
     // })
-    $('.filter-click').click(function () {
-        var url = window.location.href;
-        var cat_id = $(this).attr('data_id');
-        var name = $(this).attr('name');
-        if (url.indexOf('?') > -1){
-            url += '&'+name+'='+cat_id
-        }else{
-            url += '?'+name+'='+cat_id
-        }
-        window.location.href = url;
-    })
-
+    $('.filter-cat-list li input').on('change', function() {
+        $('.filter-cat-list li input').not(this).prop('checked', false);
+    });
 })
