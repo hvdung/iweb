@@ -39,7 +39,10 @@ $(document).ready(function () {
     //         }
     //     })
     // })
-    $('.filter-cat-list li input').on('change', function() {
-        $('.filter-cat-list li input').not(this).prop('checked', false);
+
+    $('.filter-list li input').on('change', function() {
+        var input_name = $(this).attr('name');
+        var group = ".filter-list li input[name='" + input_name + "']"
+            $(group).not(this).prop('checked', false);
     });
 })

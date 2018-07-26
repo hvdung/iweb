@@ -2,11 +2,33 @@
   <div class="post-filter">
     <div class="post-filter-item">
       <h3>Filter by category</h3>
-      <ul class="filter-cat-list">
+      <ul class="filter-list">
         <% @categories.each do |c| %>
-        <li>
-            <%= check_box_tag 'cat_id', c.id %> <span><%= c.title %></span>
-        </li>
+          <% if params[:cat_id] == c.id.to_s %>
+            <li>
+              <%= check_box_tag 'cat_id', c.id, true %> <span><%= c.title %></span>
+            </li>
+          <% else %>
+            <li>
+              <%= check_box_tag 'cat_id', c.id %> <span><%= c.title %></span>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="post-filter-item">
+      <h3>Filter by user</h3>
+      <ul class="filter-list">
+        <% @users.each do |u| %>
+          <% if params[:user_id] == u.id.to_s %>
+            <li>
+              <%= check_box_tag 'user_id', u.id, true %> <span><%= u.email %></span>
+            </li>
+          <% else %>
+            <li>
+              <%= check_box_tag 'user_id', u.id %> <span><%= u.email %></span>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>

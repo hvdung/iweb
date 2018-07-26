@@ -4,10 +4,14 @@ class PostsController < ApplicationController
 
   def index
     @categories = Category.all
-    @cat_id = params[:cat_id]
+    @users = User.all
 
     if params[:cat_id].present?
       @posts = Post.joins(:relationships).where("category_id = ?", params[:cat_id]).paginate(:page => params[:page], :per_page => 16)
+    elsif params[:user_id].present?
+      @posts = Post.all.where("user_id = ?", params[:user_id]).paginate(:page => params[:page], :per_page => 16)
+    elsif params[:cat_id].present? and params[:user_id].present?
+      @posts = Post.joins(:relationships).where("category_id = :cat_id and user_id = :user_id", {cat_id: params[:cat_id], user_id: params[:user_id]}).paginate(:page => params[:page], :per_page => 16)
     else
       @posts = Post.paginate(:page => params[:page], :per_page => 16)
     end
