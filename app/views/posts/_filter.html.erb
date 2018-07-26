@@ -1,13 +1,11 @@
-<div class="post-filter">
-  <div class="post-filter-item">
-    <h3>Filter by category</h3>
-    <ul>
-      <% @categories.each do |cat| %>
-      <li>
-        <span class="filter-click" data_id=<%= cat.id %> name="category" ><%= cat.title %></span>
-      </li>
-      <% end %>
-    </ul>
+
+<%= form_tag posts_path, method: :get do %>
+  <div class="post-filter">
+    <div class="post-filter-item">
+      <h3>Filter by category</h3>
+      <%= select_tag 'cat_id', options_for_select(@categories.collect{ |c| [c.title, c.id] }) %>
+    </div>
+    <%= submit_tag "Filter", class: 'btn btn-submit' %>
   </div>
-</div>
+<% end %>
 

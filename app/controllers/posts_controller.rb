@@ -3,8 +3,13 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 16)
     @categories = Category.all
+
+    if params[:cat_id].present?
+      @posts = Post.joins(:relationships).where("category_id = ?", params[:cat_id]).paginate(:page => params[:page], :per_page => 16)
+    else
+      @posts = Post.paginate(:page => params[:page], :per_page => 16)
+    end
 
   end
 
