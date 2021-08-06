@@ -1,0 +1,35 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --init-connect='SET NAMES UTF8; SET CHARACTER SET utf8mb4;'
+    container_name: diary-db
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  web:
+    build: .
+    tty: true
+    container_name: diary-web
+    environment:
+      RAILS_ENV: development
+      BUNDLE_PATH: /usr/local/bundle
+    ports:
+      - "1080:3000"
+    volumes:
+      - ".:/diary"
+      - /diary/node_modules/
+      - /diary/tmp/
+      - storage_file:/diary/storage/
+      - gem_cache:/usr/local/bundle:cached
+    depends_on:
+      - db
+volumes:
+  storage_file:
+  gem_cache:
+  node_modules:
+  admin_node_modules:
+  hls_data:
+  db_data:
+    driver: local

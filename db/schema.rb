@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180722014105) do
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180722014105) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-  create_table "ckeditor_assets", force: :cascade do |t|
+  create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20180722014105) do
     t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
@@ -43,16 +43,16 @@ ActiveRecord::Schema.define(version: 20180722014105) do
     t.integer "user_id"
   end
 
-  create_table "relationships", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "category_id"
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "post_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_relationships_on_category_id"
     t.index ["post_id"], name: "index_relationships_on_post_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -70,4 +70,6 @@ ActiveRecord::Schema.define(version: 20180722014105) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "relationships", "categories"
+  add_foreign_key "relationships", "posts"
 end
